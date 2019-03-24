@@ -1,0 +1,12 @@
+C:\Users\jfpsb\source\repos\Alg2Exer1\Alg2Exer1\obj\Debug\Problema1.csproj.CoreCompileInputs.cache
+C:\Users\jfpsb\source\repos\Alg2Exer1\Alg2Exer1\bin\Debug\Problema1.exe.config
+C:\Users\jfpsb\source\repos\Alg2Exer1\Alg2Exer1\bin\Debug\Problema1.exe
+C:\Users\jfpsb\source\repos\Alg2Exer1\Alg2Exer1\bin\Debug\Problema1.pdb
+C:\Users\jfpsb\source\repos\Alg2Exer1\Alg2Exer1\obj\Debug\Problema1.exe
+C:\Users\jfpsb\source\repos\Alg2Exer1\Alg2Exer1\obj\Debug\Problema1.pdb
+C:\Users\jfpsb\source\repos\Alg2Exer1\Problema1\bin\Debug\Problema1.exe.config
+C:\Users\jfpsb\source\repos\Alg2Exer1\Problema1\bin\Debug\Problema1.exe
+C:\Users\jfpsb\source\repos\Alg2Exer1\Problema1\bin\Debug\Problema1.pdb
+C:\Users\jfpsb\source\repos\Alg2Exer1\Problema1\obj\Debug\Problema1.csproj.CoreCompileInputs.cache
+C:\Users\jfpsb\source\repos\Alg2Exer1\Problema1\obj\Debug\Problema1.exe
+C:\Users\jfpsb\source\repos\Alg2Exer1\Problema1\obj\Debug\Problema1.pdb
