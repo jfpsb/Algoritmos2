@@ -1,0 +1,7 @@
+C:\Users\jfpsb\source\repos\Alg2Exer1\AtividadeNDamas\obj\Debug\AtividadeNDamas.csprojAssemblyReference.cache
+C:\Users\jfpsb\source\repos\Alg2Exer1\AtividadeNDamas\obj\Debug\AtividadeNDamas.csproj.CoreCompileInputs.cache
+C:\Users\jfpsb\source\repos\Alg2Exer1\AtividadeNDamas\bin\Debug\AtividadeNDamas.exe.config
+C:\Users\jfpsb\source\repos\Alg2Exer1\AtividadeNDamas\bin\Debug\AtividadeNDamas.exe
+C:\Users\jfpsb\source\repos\Alg2Exer1\AtividadeNDamas\bin\Debug\AtividadeNDamas.pdb
+C:\Users\jfpsb\source\repos\Alg2Exer1\AtividadeNDamas\obj\Debug\AtividadeNDamas.exe
+C:\Users\jfpsb\source\repos\Alg2Exer1\AtividadeNDamas\obj\Debug\AtividadeNDamas.pdb
