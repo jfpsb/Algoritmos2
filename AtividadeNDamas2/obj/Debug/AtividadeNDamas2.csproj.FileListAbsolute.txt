@@ -1,0 +1,7 @@
+C:\Users\jfpsb\Documents\Algoritmos2\AtividadeNDamas2\bin\Debug\AtividadeNDamas2.exe.config
+C:\Users\jfpsb\Documents\Algoritmos2\AtividadeNDamas2\bin\Debug\AtividadeNDamas2.exe
+C:\Users\jfpsb\Documents\Algoritmos2\AtividadeNDamas2\bin\Debug\AtividadeNDamas2.pdb
+C:\Users\jfpsb\Documents\Algoritmos2\AtividadeNDamas2\obj\Debug\AtividadeNDamas2.csprojAssemblyReference.cache
+C:\Users\jfpsb\Documents\Algoritmos2\AtividadeNDamas2\obj\Debug\AtividadeNDamas2.csproj.CoreCompileInputs.cache
+C:\Users\jfpsb\Documents\Algoritmos2\AtividadeNDamas2\obj\Debug\AtividadeNDamas2.exe
+C:\Users\jfpsb\Documents\Algoritmos2\AtividadeNDamas2\obj\Debug\AtividadeNDamas2.pdb
