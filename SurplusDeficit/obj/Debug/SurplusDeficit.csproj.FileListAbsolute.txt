@@ -1,0 +1,7 @@
+C:\Users\jfpsb\Documents\Algoritmos2\SurplusDeficit\bin\Debug\SurplusDeficit.exe.config
+C:\Users\jfpsb\Documents\Algoritmos2\SurplusDeficit\bin\Debug\SurplusDeficit.exe
+C:\Users\jfpsb\Documents\Algoritmos2\SurplusDeficit\bin\Debug\SurplusDeficit.pdb
+C:\Users\jfpsb\Documents\Algoritmos2\SurplusDeficit\obj\Debug\SurplusDeficit.csprojAssemblyReference.cache
+C:\Users\jfpsb\Documents\Algoritmos2\SurplusDeficit\obj\Debug\SurplusDeficit.csproj.CoreCompileInputs.cache
+C:\Users\jfpsb\Documents\Algoritmos2\SurplusDeficit\obj\Debug\SurplusDeficit.exe
+C:\Users\jfpsb\Documents\Algoritmos2\SurplusDeficit\obj\Debug\SurplusDeficit.pdb
