@@ -20,19 +20,39 @@ namespace AtividadeNDamas
 
             SurplusDeficit(new int[12], 0, s, d);
 
-            Console.Write("MAIOR: " + max);
+            Console.WriteLine(max);
 
             Console.ReadKey();
         }
 
         public static void SurplusDeficit(int[] vetor, int index, int s, int d)
         {
-            int aux = 0;
+            int total = 0;
             int soma = 0;
 
             if (index == 12)
             {
-                
+                for (int i = 0; i < 12; i++)
+                {
+                    total += vetor[i];
+
+                    if (i >= 4)
+                    {
+                        for (int j = i; j >= i - 4; j--)
+                        {
+                            soma += vetor[j];
+                        }
+
+                        if(soma > 0)
+                        {
+                            total = 0;
+                            break;
+                        }
+                    }
+                }
+
+                if (total > max)
+                    max = total;
             }
             else
             {
@@ -42,47 +62,6 @@ namespace AtividadeNDamas
                 vetor[index] = -d;
                 SurplusDeficit(vetor, index + 1, s, d);
             }
-
-
-            //if (index == n)
-            //{
-            //    Console.Write(cont++ + ": " + vetor[0]);
-
-            //    for (int i = 1; i < n; i++)
-            //    {
-            //        Console.Write(vetor[i]);
-            //    }
-            //    Console.WriteLine();
-            //}
-            //else
-            //{
-            //    for (int i = 1; i <= n; i++)
-            //    {
-            //        bool ok = true;
-
-            //        for (int j = 0; j < index; j++)
-            //        {
-            //            if (vetor[j] == i)
-            //            {
-            //                ok = false;
-            //                break;
-            //            }
-
-            //            int diff = index - j;
-            //            if (vetor[j] == i - diff || vetor[j] == i + diff)
-            //            {
-            //                ok = false;
-            //                break;
-            //            }
-            //        }
-
-            //        if (ok)
-            //        {
-            //            vetor[index] = i;
-            //            SurplusDeficit(vetor, index + 1, n);
-            //        }
-            //    }
-            //}
         }
     }
 }
