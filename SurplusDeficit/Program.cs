@@ -4,63 +4,75 @@ namespace AtividadeNDamas
 {
     class Program
     {
-        static int cont = 1;
-        static int max = 0;
+        static int surplus = 0;
 
         static void Main(string[] args)
         {
-            cont = 1;
+            while (true)
+            {
+                string[] input = Console.ReadLine().Split();
 
-            string[] input = Console.ReadLine().Split();
+                int s = int.Parse(input[0]);
+                int d = int.Parse(input[1]);
 
-            int s = int.Parse(input[0]);
-            int d = int.Parse(input[1]);
+                surplus = 0;
 
-            max = 0;
+                ChamaSurplusDeficit(new int[12], s, d);
 
-            SurplusDeficit(new int[12], 0, s, d);
-
-            Console.WriteLine(max);
-
-            Console.ReadKey();
+                if (surplus == 0)
+                {
+                    Console.WriteLine("Deficit");
+                }
+                else
+                {
+                    Console.WriteLine(surplus);
+                }
+            }
         }
 
-        public static void SurplusDeficit(int[] vetor, int index, int s, int d)
+        public static void ChamaSurplusDeficit(int[] vetor, int s, int d)
+        {
+            SurplusDeficit(vetor, 0, s, d, 0);
+        }
+
+        public static void SurplusDeficit(int[] vetor, int index, int s, int d, int soma)
         {
             int total = 0;
-            int soma = 0;
 
             if (index == 12)
             {
                 for (int i = 0; i < 12; i++)
                 {
                     total += vetor[i];
-
-                    if (i >= 4)
-                    {
-                        for (int j = i; j >= i - 4; j--)
-                        {
-                            soma += vetor[j];
-                        }
-
-                        if(soma > 0)
-                        {
-                            total = 0;
-                            break;
-                        }
-                    }
                 }
 
-                if (total > max)
-                    max = total;
+                if (total > surplus)
+                    surplus = total;
             }
             else
             {
-                vetor[index] = s;
-                SurplusDeficit(vetor, index + 1, s, d);
+                bool ok = true;
 
-                vetor[index] = -d;
-                SurplusDeficit(vetor, index + 1, s, d);
+                if (index > 4)
+                {
+                    if (soma > 0)
+                    {
+                        ok = false;
+                    }
+                    else
+                    {
+                        soma -= vetor[index - 5];
+                    }
+                }
+
+                if (ok)
+                {
+                    vetor[index] = s;
+                    SurplusDeficit(vetor, index + 1, s, d, soma + vetor[index]);
+
+                    vetor[index] = -d;
+                    SurplusDeficit(vetor, index + 1, s, d, soma + vetor[index]);
+                }
             }
         }
     }
