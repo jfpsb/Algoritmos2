@@ -3,16 +3,19 @@
 int calculaTermos(int *memo, int numero) {
     int termos = 1;
 
+    if(numero <= 0)
+        return 0;
+
     if(memo[numero] != -1)
         return memo[numero];
 
-    if(numero == 0)
-        return 0;
-
-    for(int i = 1; i < numero; i++) {
+    for(int i = 1; i <= numero; i++) {
+        int anterior = (i - 1) * (i - 1);
         int potencia = i * i;
+
         if(potencia > numero) {
-            termos += calculaTermos(memo, numero - potencia);
+            termos += calculaTermos(memo, numero - anterior);
+            break;
         }
     }
 
@@ -23,10 +26,10 @@ int calculaTermos(int *memo, int numero) {
 int main()
 {
     int casos;
-    int numeros[10000];
-    int memo[10000];
+    int numeros[10001];
+    int memo[10001];
 
-    for(int i = 0; i < 10000; i++) {
+    for(int i = 0; i < 10001; i++) {
         memo[i] = -1;
     }
 
@@ -37,7 +40,7 @@ int main()
     }
 
     for(int i = 0; i < casos; i++) {
-        printf("%d", calculaTermos(memo, numeros[i]));
+        printf("%d\n", calculaTermos(memo, numeros[i]));
     }
 
     return 0;
