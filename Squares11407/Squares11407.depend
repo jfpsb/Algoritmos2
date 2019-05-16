@@ -1,4 +1,5 @@
 # depslib dependency file v1.0
-1555515015 source:c:\users\jfpsb\documents\algoritmos2\squares11407\main.cpp
+1558015797 source:c:\users\jfpsb\documents\algoritmos2\squares11407\main.cpp
 	<cstdio>
+	<limits.h>
 
