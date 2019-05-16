@@ -1,38 +1,36 @@
 #include <stdio.h>
 
-int caminho(int matriz[10][100], int col, int lin, int m)
+int caminho(int matriz[10][100], int lin, int col, int col_max)
 {
-    if(col == m - 1)
+    if(col == col_max - 1)
         return matriz[lin][col];
 
-    int linha_acima, linha, linha_abaixo;
-    int acima, meio, abaixo;
-    int peso_atual = matriz[lin][col];
+    int caminho_atual = matriz[lin][col];
+    int acima = lin - 1;
+    int meio = lin;
+    int abaixo = lin + 1;
+    int valor_acima, valor_meio, valor_abaixo;
     int menor;
 
     if(lin == 0)
-        linha_acima = m - 1;
-    else
-        linha_acima = lin - 1;
+        acima = col_max - 1;
 
-    if(lin == m - 1)
-        linha_abaixo = 0;
-    else
-        linha_abaixo = lin + 1;
+    if(lin == col_max - 1)
+        abaixo = 0;
 
-    acima = caminho(matriz, col + 1, linha_acima, m);
-    meio = caminho(matriz, col + 1, linha, m);
-    abaixo = caminho(matriz, col + 1, linha_abaixo, m);
+    valor_acima = caminho(matriz, col + 1, acima, col_max);
+    valor_abaixo = caminho(matriz, col + 1, abaixo, col_max);
+    valor_meio = caminho(matriz, col + 1, meio, col_max);
 
-    menor = acima;
+    menor = valor_acima;
 
-    if(meio < menor)
-        menor = meio;
+    if(valor_abaixo < menor)
+        menor = valor_abaixo;
 
-    if(abaixo < menor)
-        menor = abaixo;
+    if(valor_meio < menor)
+        menor = valor_meio;
 
-    return peso_atual + menor;
+    return caminho_atual + menor;
 }
 
 int main()
@@ -50,11 +48,10 @@ int main()
         }
     }
 
-    int t = caminho(matriz, 0, 0, m);
-    int linha = 0;
+    int t = caminho(matriz, 0, 0, n);
 
     for(int i = 1; i < m; i++) {
-        int aux = caminho(matriz, 0, i, m);
+        int aux = caminho(matriz, i, 0, n);
 
         if(aux < t) {
             t = aux;
