@@ -21,7 +21,7 @@
 #include <CGAL/Qt/utility.h>
 
 // the two base classes
-#include "ui_Delaunay_triangulation_2.h"
+#include "ui_delaunay_voronoi.h"
 #include <CGAL/Qt/DemosMainWindow.h>
 
 typedef CGAL::Exact_predicates_inexact_constructions_kernel K;
@@ -32,7 +32,7 @@ typedef CGAL::Delaunay_triangulation_2<K> Delaunay;
 
 class MainWindow :
     public CGAL::Qt::DemosMainWindow,
-    public Ui::Delaunay_triangulation_2
+    public Ui::delaunay_voronoi_cg
 {
     Q_OBJECT
 
@@ -80,7 +80,8 @@ MainWindow::MainWindow()
     QObject::connect(this, SIGNAL(changed()),
                      dgi, SLOT(modelChanged()));
 
-    dgi->setVerticesPen(QPen(Qt::red, 3, Qt::SolidLine, Qt::RoundCap, Qt::RoundJoin));
+    dgi->setEdgesPen(QPen(Qt::black, 0.05, Qt::SolidLine, Qt::RoundCap, Qt::RoundJoin));
+    dgi->setVerticesPen(QPen(Qt::red, 5, Qt::SolidLine, Qt::RoundCap, Qt::RoundJoin));
     scene.addItem(dgi);
     dgi->show();
 
@@ -90,7 +91,7 @@ MainWindow::MainWindow()
     QObject::connect(this, SIGNAL(changed()),
                      vgi, SLOT(modelChanged()));
 
-    vgi->setEdgesPen(QPen(Qt::blue, 0, Qt::SolidLine, Qt::RoundCap, Qt::RoundJoin));
+    vgi->setEdgesPen(QPen(Qt::blue, 0.08, Qt::SolidLine, Qt::RoundCap, Qt::RoundJoin));
     scene.addItem(vgi);
     vgi->show();
 

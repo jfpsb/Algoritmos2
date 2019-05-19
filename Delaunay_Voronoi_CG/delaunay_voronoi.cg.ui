@@ -1,7 +1,7 @@
 <ui version="4.0" >
 	<author>GeometryFactory</author>
-	<class>Delaunay_triangulation_2</class>
-	<widget class="QMainWindow" name="Delaunay_triangulation_2" >
+	<class>delaunay_voronoi_cg</class>
+	<widget class="QMainWindow" name="delaunay_voronoi_cg" >
 		  <property name="geometry" >
 			   <rect>
 			    <x>0</x>
@@ -11,7 +11,7 @@
 			   </rect>
 		  </property>
 		  <property name="windowTitle" >
-			<string>CGAL Delaunay Triangulation</string>
+			<string>Delaunay/Voronoi CGAL (CG)</string>
 		  </property>
 		  <property name="windowIcon" >
 			<iconset resource="../resources/CGAL.qrc" >
@@ -64,7 +64,7 @@
 	     <normaloff>:/cgal/Triangulation_2/Voronoi_diagram_2.png</normaloff>:/cgal/Triangulation_2/Voronoi_diagram_2.png</iconset>
 	   </property>
 	   <property name="text" >
-	    <string>Show &amp;Voronoi Diagram</string>
+	    <string>Mostrar/Ocultar Diagrama de Voronoi</string>
 	   </property>
 	   <property name="shortcut" >
 	    <string>Ctrl+V</string>
@@ -76,7 +76,7 @@
      <normaloff>:/cgal/Input/zoom-best-fit</normaloff>:/cgal/Input/zoom-best-fit</iconset>
    </property>
    <property name="text" >
-    <string>Re&amp;center the viewport</string>
+    <string>Redimensionar Diagrama em Viewport</string>
    </property>
    <property name="shortcut" >
     <string>Ctrl+R</string>
