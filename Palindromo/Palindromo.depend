@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1558360933 source:c:\users\jfpsb\documents\algoritmos2\palindromo\main.cpp
+	<stdio.h>
+	<string.h>
+	<iostream>
+
