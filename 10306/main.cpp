@@ -2,18 +2,16 @@
 
 using namespace std;
 
-//coin change
-
 int memo[301][301];
 int X[41], Y[41];
 int m;
 
 int minCoins(int sumX, int sumY, int value)
 {
+    int menor = INT_MAX;
+
     if(memo[sumX][sumY] != -10)
         return memo[sumX][sumY];
-
-    int result = INT_MAX;
 
     int e = sumX * sumX + sumY * sumY;
 
@@ -23,18 +21,35 @@ int minCoins(int sumX, int sumY, int value)
     }
     else if(e == value)
     {
-
+        memo[sumX][sumY] = 0;
+        return 1;
     }
     else
     {
         for(int i = 0; i < m; i++)
         {
+            memo[sumX + X[i]][sumY + Y[i]] = 1;
+
             int aux = minCoins(sumX + X[i], sumY + Y[i], value);
 
-            if(aux < result)
-                result = aux;
+            if(aux < 0) {
+                continue;
+            }
+            else {
+                memo[sumX + X[i]][sumY + Y[i]] += memo[sumX][sumY];
+            }
+            else if(aux < menor) {
+                menor = aux;
+            }
         }
     }
+
+    if(menor == INT_MAX) {
+        memo[sumX][sumY] = -10;
+        return -10;
+    }
+
+    return menor;
 }
 
 int main()
