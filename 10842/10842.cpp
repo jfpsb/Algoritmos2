@@ -312,22 +312,29 @@ int main()
 {
 	int casos = 0, n, m;
 	int u, v, c;
+	int soma = 0;
 
 	cin >> casos;
 
 	for (int i = 0; i < casos; i++) {
 		cin >> n >> m;
 
+		soma = 0;
+
 		Graph<int> grafo(n);
 
 		for (int j = 0; j < m; j++) {
 			cin >> u >> v >> c;
 
-			grafo.addEdge(u, v, c);
-			grafo.addEdge(v, u, c);
+			if (u != v) {
+				grafo.addEdge(u, v, c);
+				grafo.addEdge(v, u, c);
+
+				soma += c;
+			}
 		}
 
-		cout << "Case #" << (i + 1) << ": " << grafo.Kruskal() << endl;
+		cout << "Case #" << (i + 1) << ": " << soma - grafo.Prim() << endl;
 	}
 
 	return 0;
