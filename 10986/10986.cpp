@@ -3,6 +3,8 @@
 #include <stack>
 #include <climits>
 #include <iostream>
+#include <map>
+#include <algorithm>
 
 using namespace std;
 
@@ -258,14 +260,14 @@ Utilizada para verificar se uma aresta já está na MST de forma rápida.
 
 				// Coloca u e v no mesmo conjunto
 				dj.UNION(u, v);
-				cout << u << " para " << v << " = " << edges[i].first << endl;
+				//cout << u << " para " << v << " = " << edges[i].first << endl;
 			}
 		}
 
 		return sum;
 	} //Kruskal
 
-	PESO Prim() {
+	vector<PESO> Prim() {
 		vector<bool> visited(V, false); //inicia um vetor com os vértices não visitados
 		vector<PESO> cost(V, INFINITO); //define o custo para todos os vertices como infinito
 
@@ -273,21 +275,21 @@ Utilizada para verificar se uma aresta já está na MST de forma rápida.
 		PESO sum = 0;
 		cost[0] = 0;
 
-		priority_queue< pair<int, pair<PESO, int>>,
-			vector< pair<int, pair<PESO, int> > >,
-			greater< pair<int, pair<PESO, int> > > > q;
+		priority_queue< pair<PESO, int>,
+			vector< pair<PESO, int> >,
+			greater< pair<PESO, int> > > q;
 
-		q.push(pair<int, pair<PESO, int>>(0, pair<PESO, int>(0, 0)));
+		q.push(pair<PESO, int>(0/*cost*/, 0/*node*/));
 
 		//Enquanto a Fila não estiver vazia
 		while (!q.empty()) {
-			pair<int, pair<PESO, int>> p = q.top(); //Recupera o próximo da fila
+			pair<PESO, int> p = q.top(); //Recupera o próximo da fila
 			q.pop(); //Remove da fila
-			int v = p.second.second;
-			PESO costV = p.second.first;
+			int v = p.second;
+			PESO costV = p.first;
 			if (visited[v]) continue; //Caso tenha sido visitado: ignore-o
 
-			cout << q.first << " para " << v << ": " << costV <<endl;
+			//cout << "v = " << v << endl;
 
 			visited[v] = true; //Marca como visitado
 			sum += cost[v]; //Incrementa o Custo Total
@@ -296,53 +298,43 @@ Utilizada para verificar se uma aresta já está na MST de forma rápida.
 				int neigh = adj[v][i];
 				if (weight[v][i] < cost[neigh]) {
 					cost[neigh] = weight[v][i];
-					q.push(pair<int, pair<PESO, int>>(v, pair<PESO, int>(cost[neigh], neigh)));
+					q.push(pair<PESO, int>(cost[neigh], neigh));
 				}
 			}
+
+
 		} //while(q)
-		return sum;
+		return cost;
 	}//Prim
 };
 
+int main()
+{
+	int casos, n, m, S, T;
+	int server1, server2, lat;
 
-int main() {
-	//Cria um grafo com 6 vertices
-	Graph<int> g1(7);
+	cin >> casos;
 
-	//A
-	g1.addEdge(0, 1, 2);
-	g1.addEdge(0, 2, 3);
-	g1.addEdge(0, 3, 3);
+	for (int i = 0; i < casos; i++) {
+		cin >> n >> m >> S >> T;
 
-	//B
-	g1.addEdge(1, 0, 2);
-	g1.addEdge(1, 2, 4);
-	g1.addEdge(1, 4, 3);
+		Graph<int> g(n);
 
-	//C
-	g1.addEdge(2, 0, 3);
-	g1.addEdge(2, 1, 4);
-	g1.addEdge(2, 4, 1);
-	g1.addEdge(2, 5, 6);
+		for (int j = 0; j < m; j++) {
+			cin >> server1 >> server2 >> lat;
+			g.addEdge(server1, server2, lat);
+			g.addEdge(server2, server1, lat);
+		}
 
-	//D
-	g1.addEdge(3, 0, 3);
-	g1.addEdge(3, 5, 7);
+		vector<int> cost = g.Prim();
 
-	//E
-	g1.addEdge(4, 1, 3);
-	g1.addEdge(4, 2, 1);
-	g1.addEdge(4, 5, 8);
+		if (m == 0 || cost[T] == INFINITO) {
+			cout << "Case #" << i + 1 << ": unreachable" << endl;
+			continue;
+		}
 
-	//F
-	g1.addEdge(5, 3, 7);
-	g1.addEdge(5, 2, 6);
-	g1.addEdge(5, 4, 8);
-	g1.addEdge(5, 6, 9);
+		int result = g.Dijkstra(S, T);
 
-	//G
-	g1.addEdge(6, 5, 9);
-	
-	cout << "Kruskal" << endl << g1.Kruskal() << endl;
-	cout << "Prim" << endl << g1.Prim() << endl;
+		cout << "Case #" << i + 1 << ": " << result << endl;
+	}
 }
